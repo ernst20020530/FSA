@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+
+        ul {
+            height:auto;
+            list-style-type: none;
+            display:block;
+        }
+
+        li {
+            float:left;
+        }
+
+
+            li:hover a.rootMenuItem {
+                text-decoration:none;
+                color:white;
+                font-size: 30px;
+            }
+
+        a {
+            text-decoration:none;
+            color:black;
+            font-size: 30px;
+            background-color: rgb(222, 229, 239);
+            display:inline-block;
+            padding-left:30px;
+            padding-right:30px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+            a:hover {
+                background-color: rgb(15, 96, 226);
+            }
+
+            a.subMenuItem {
+                text-decoration:none;
+                color:black;
+                font-size: 20px;
+                background-color: rgb(222, 229, 239);
+                display:inline-block;
+                padding-left:30px;
+                padding-right:30px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+
+            a.subMenuItem:hover {
+                color:white;
+                font-size: 20px;
+                background-color: rgb(15, 96, 226);
+            }
+
+        div.subMenu {
+            display:none
+        }
+
+            .subMenuRoot:hover div.subMenu {
+                display:block;
+            }
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="BalanceSheet.html" class="rootMenuItem" target="content_frame">Balance Sheet</a></li>
+        <li><a href="IncomeStatement.html" class="rootMenuItem" target="content_frame">Income Statement</a></li>
+        <li class="subMenuRoot">
+            <a>CashFlowStatement</a>
+            <div class="subMenu">
+                <a class="subMenuItem" href="OperationCashFlowStatement.html" target="content_frame">Operation Cash Flow Statement</a>
+                <a class="subMenuItem" href="InvestmentCashFlowStatement.html" target="content_frame">Investment Cash Flow Statement</a>
+                <a class="subMenuItem" href="FinanceCashFlowStatement.html" target="content_frame">Finance Cash Flow Statement</a>
+            </div>
+            <!--<div class="subMenuRoot" style="margin:0px">
+                <p class="subMenuItemP" style="display:inline-block;margin-top:20px"><a href="OperationCashFlowStatement.html" class="subMenuItem" target="content_frame">Operation Cash Flow Statement</a></p>
+                <p class="subMenuItemP" style="display:inline-block"><a href="InvestmentCashFlowStatement.html" class="subMenuItem" target="content_frame">Investment Cash Flow Statement</a></p>
+                <p class="subMenuItemP" style="display:inline-block"><a href="FinanceCashFlowStatement.html" class="subMenuItem" target="content_frame">Finance Cash Flow Statement</a></p>
+            </div>-->
+        </li>
+    </ul>
+</body>
+</html>

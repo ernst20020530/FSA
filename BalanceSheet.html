@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="Style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div align="center">
+        <table>
+            <caption><h2>Balance Sheet</h2></caption>
+            <tr>
+                <th>Asserts</th>
+                <th></th>
+                <th>Liabilities</th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>Current Assets</th>
+                <th></th>
+                <th>Current Liabilities</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>Cash</td>
+                <td>$<input id="c" type="text" class="NonNegativeNumber" value="0" onchange="calculatetca()" /></td>
+                <td>Bank indebtedness</td>
+                <td>$<input id="bi" type="text" class="NonNegativeNumber" value="0" onchange="calculatetcl()" /></td>
+            </tr>
+            <tr>
+                <td>Short term investments</td>
+                <td>$<input id="sti" type="text" class="NonNegativeNumber" value="0" onchange="calculatetca()" /></td>
+                <td>A/P</td>
+                <td>$<input id="ap" type="text" class="NonNegativeNumber" value="0" onchange="calculatetcl()" /></td>
+            </tr>
+            <tr>
+                <td>A/R</td>
+                <td>$<input id="ar" type="text" class="NonNegativeNumber" value="0" onchange="calculatetca()" /></td>
+                <td>Accrued expenses</td>
+                <td>$<input id="ae" type="text" class="NonNegativeNumber" value="0" onchange="calculatetcl()" /></td>
+            </tr>
+            <tr>
+                <td>Notes receivable</td>
+                <td>$<input id="nr" type="text" class="NonNegativeNumber" value="0" onchange="calculatetca()" /></td>
+                <td>Short-term loans</td>
+                <td>$<input id="stl" type="text" class="NonNegativeNumber" value="0" onchange="calculatetcl()" /></td>
+            </tr>
+            <tr>
+                <td>Inventory</td>
+                <td>$<input id="iy" type="text" class="NonNegativeNumber" value="0" onchange="calculatetca()" /></td>
+                <td>Unearned revenues</td>
+                <td>$<input id="ur" type="text" class="NonNegativeNumber" value="0" onchange="calculatetcl()" /></td>
+            </tr>
+            <tr>
+                <td>Prepaied expense</td>
+                <td>$<input id="pe" type="text" class="NonNegativeNumber" value="0" onchange="calculatetca()" /></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+            <tr>
+                <td class="firstline">Total Current Assets</td>
+                <td class="firstline">$<input id="tca" type="text" class="summary" readonly="readonly" value="0" /></td>
+                <td class="firstline">Total Current Liabilities</td>
+                <td class="firstline">$<input id="tcl" type="text" class="summary" readonly="readonly" value="0" /></td>
+            </tr>
+            <tr>
+                <th>Long Asserts</th>
+                <th></th>
+                <th>Long Liabilities</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>Investments</td>
+                <td>$<input id="it" type="text" class="NonNegativeNumber" value="0" onchange="calculatetla()" /></td>
+                <td>Bonds payable</td>
+                <td>$<input id="bp" type="text" class="NonNegativeNumber" value="0" onchange="calculatetll()" /></td>
+            </tr>
+            <tr>
+                <td>PP&E</td>
+                <td>$<input id="ppe" type="text" class="NonNegativeNumber" value="0" onchange="calculatetla()" /></td>
+                <td>DTL</td>
+                <td>$<input id="dtl" type="text" class="NonNegativeNumber" value="0" onchange="calculatetll()" /></td>
+            </tr>
+            <tr>
+                <td>DTA</td>
+                <td>$<input id="dta" type="text" class="NonNegativeNumber" value="0" onchange="calculatetla()" /></td>
+                <td class="firstline">Total Long Liabilities</td>
+                <td class="firstline">$<input id="tll" type="text" class="summary" readonly="readonly" value="0" /></td>
+            </tr>
+            <tr>
+                <td>Other assets</td>
+                <td>$<input id="oa" type="text" class="NonNegativeNumber" value="0" onchange="calculatetla()" /></td>
+                <th class="secondline">Total Liabilities</th>
+                <td class="secondline">$<input id="tl" type="text" class="summary" readonly="readonly" value="0" /></td>
+            </tr>
+            <tr>
+                <td>Identifiable intangible asset</td>
+                <td>$<input id="iia" type="text" class="NonNegativeNumber" value="0" onchange="calculatetla()" /></td>
+                <th>Equity</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>Good Will</td>
+                <td>$<input id="gw" type="text" class="NonNegativeNumber" value="0" onchange="calculatetla()" /></td>
+                <td>Contributed capital</td>
+                <td>$<input id="cc" type="text" class="NonNegativeNumber" value="0" onchange="calculatete()" /></td>
+            </tr>
+            <tr>
+                <td class="firstline">Total Long Asserts</td>
+                <td class="firstline">$<input id="tla" type="text" class="summary" readonly="readonly" value="0" /></td>
+                <td>Returned earnings</td>
+                <td>$<input type="text" id="re" class="NonNegativeNumber" value="0" onchange="calculatete()" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Accumulated other comprehensive income</td>
+                <td>$<input type="text" id="aoci" class="NonNegativeNumber" value="0" onchange="calculatete()" /></td>
+            </tr>
+            <tr>
+                <th class="secondline">Total assets</th>
+                <td class="secondline">$<input id="ta" type="text" class="summary" readonly="readonly" value="0" /></td>
+                <th class="secondline">Total equity</th>
+                <td class="secondline">$<input id="te" type="text" class="summary" readonly="readonly" value="0" /></td>
+            </tr>
+        </table>
+        <p id="conclusion" style="display:none;color:red">Asset Does not equal to Debt Plus Equtiy</p>
+    </div>
+    <script>
+
+        function calculatetca() {
+            var c = GetAndValidiateField("c");
+            var sti = GetAndValidiateField("sti");
+            var ar = GetAndValidiateField("ar");
+            var nr = GetAndValidiateField("nr");
+            var iy = GetAndValidiateField("iy");
+            var pe = GetAndValidiateField("pe");
+            document.getElementById("tca").value = c + sti + ar + nr + iy + pe;
+            calculateta();
+        }
+
+        function calculatetcl() {
+            var bi = GetAndValidiateField("bi");
+            var ap = GetAndValidiateField("ap");
+            var ae = GetAndValidiateField("ae");
+            var stl = GetAndValidiateField("stl");
+            var ur = GetAndValidiateField("ur");
+            document.getElementById("tcl").value = bi + ap + ae + stl + ur;
+            calculatetl();
+        }
+
+        function calculatetll() {
+            var bp = GetAndValidiateField("bp");
+            var dtl = GetAndValidiateField("dtl");
+            document.getElementById("tll").value = bp + dtl;
+            calculatetl();
+        }
+
+        function calculatetl() {
+            var tcl = GetAndValidiateField("tcl");
+            var tll = GetAndValidiateField("tll");
+            document.getElementById("tl").value = tcl + tll;
+            CheckBalanced();
+        }
+
+        function calculatetla() {
+            var it = GetAndValidiateField("it");
+            var ppe = GetAndValidiateField("ppe");
+            var dta = GetAndValidiateField("dta");
+            var oa = GetAndValidiateField("oa");
+            var iia = GetAndValidiateField("iia");
+            var gw = GetAndValidiateField("gw");
+            document.getElementById("tla").value = it + ppe + dta + oa + iia + gw;
+            calculateta();
+        }
+
+        function calculateta() {
+            var tca = GetAndValidiateField("tca");
+            var tla = GetAndValidiateField("tla");
+            document.getElementById("ta").value = tca + tla;
+            CheckBalanced();
+        }
+
+        function calculatete() {
+            var cc = GetAndValidiateField("cc");
+            var re = GetAndValidiateField("re");
+            var aoci = GetAndValidiateField("aoci");
+            document.getElementById("te").value = cc + re + aoci;
+            CheckBalanced();
+        }
+
+        function CheckBalanced() {
+            var ta = GetAndValidiateField("ta");
+            var tl = GetAndValidiateField("tl");
+            var te = GetAndValidiateField("te");
+            if (ta == tl + te)
+                document.getElementById("conclusion").style.display = "none";
+            else
+                document.getElementById("conclusion").style.display = "block";
+        }
+
+    </script>
+</body>
+</html>

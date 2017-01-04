@@ -1,0 +1,60 @@
+﻿
+
+
+
+caption {
+    display: table-caption;
+    text-align: center;
+    text-size-adjust:initial
+}
+
+th {
+    display:grid;
+    text-align: left;
+}
+
+table {
+    border-collapse:collapse;
+    border: 1px solid black;
+}
+
+td {
+    padding-top:5px;
+    padding-left:20px;
+    padding-right:20px;
+    padding-bottom:5px;
+}
+
+.firstline {
+    border-bottom: 1px solid black;
+    background: #c9cdf2;
+}
+
+.secondline {
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    background: #c9cdf2;
+}
+
+input {
+    text-align:right;
+}
+
+input.NonNegativeNumber:hover, input.Number:hover {
+    background-color:rgb(163, 187, 224);
+}
+
+input.NonNegativeNumber {
+            
+}
+
+input.Number {
+}
+
+input.Deductible {
+    color:red;
+}
+
+input.summary {
+    background-color:rgb(229, 237, 249);
+}

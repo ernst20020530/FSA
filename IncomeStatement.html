@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="Style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <div align="center">
+        <table>
+            <caption>
+                <h2>Income Statement</h2>
+            </caption>
+            <tr>
+                <td>Sales</td>
+                <td>
+                    $<input id="sales" type="number" class="NonNegativeNumber" name="sales" value="0" onchange="calculateebit()" />
+                </td>
+            </tr>
+            <tr>
+                <td>COGS</td>
+                <td>
+                    $<input id="cogs" type="text" class="NonNegativeNumber Deductible" name="cogs" value="0" onchange="calculateebit()" />
+                </td>
+            </tr>
+            <tr>
+                <td>SG&A</td>
+                <td>
+                    $<input id="sgAnda" type="text" class="NonNegativeNumber Deductible" name="sg&a" value="0" onchange="calculateebit()" />
+                </td>
+            </tr>
+            <tr>
+                <td>Gain And Loss</td>
+                <td>
+                    $<input id="gAndl" type="text" class="Number" name="g/l" value="0" onchange="calculateebit()" />
+                </td>
+            </tr>
+            <tr class="firstline">
+                <td>Earning Before Interest and Tax</td>
+                <td>
+                    $<input id="ebit" type="text" class="summary" value="0" readonly="readonly" onchange="calculateni()" />
+                </td>
+            </tr>
+            <tr>
+                <td>Interest</td>
+                <td>
+                    $<input id="int" type="text" class="NonNegativeNumber Deductible" value="0" onchange="calculateebt()" />
+                </td>
+            </tr>
+            <tr class="firstline">
+                <td>Earning Before Tax</td>
+                <td>
+                    $<input id="ebt" type="text" class="summary" value="0" readonly="readonly" />
+                </td>
+            </tr>
+            <tr>
+                <td>Tax</td>
+                <td>
+                    $<input id="t" type="text" class="NonNegativeNumber Deductible" value="0" onchange="calculateni()" />
+                </td>
+            </tr>
+            <tr class="secondline">
+                <th>Net Income</th>
+                <td>
+                    $<input id="ni" type="text" class="summary" value="0" readonly="readonly" />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function calculateebit(){
+            var sales = GetAndValidiateField("sales");
+            var cogs = GetAndValidiateField("cogs");
+            var sgAnda = GetAndValidiateField("sgAnda");
+            var gAndl = GetAndValidiateField("gAndl");
+            document.getElementById("ebit").defaultValue = sales + cogs + sgAnda + gAndl;
+
+            calculateebt();
+        }
+
+        function calculateebt() {
+            var ebit = GetAndValidiateField("ebit");
+            var int = GetAndValidiateField("int");
+            document.getElementById("ebt").defaultValue = ebit + int;
+
+            calculateni();
+        }
+
+        function calculateni() {
+            var ebt = GetAndValidiateField("ebt");
+            var t = GetAndValidiateField("t");
+            document.getElementById("ni").defaultValue = ebt + t;
+        }
+
+    </script>
+</body>
+</html>

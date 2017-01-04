@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="Style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div align="center">
+        <table>
+            <caption><h2>Financing Activities</h2></caption>
+            <tr>
+                <td>Cash receipts from Issueance of stock</td>
+                <td>$<input id="crfios" class="NonNegativeNumber" type="text" value="0" onchange="Calculatencfffa()" /></td>
+            </tr>
+            <tr>
+                <td>Cash receipts from borrowing</td>
+                <td>$<input id="crfb" class="NonNegativeNumber" type="text" value="0" onchange="Calculatencfffa()" /></td>
+            </tr>
+            <tr>
+                <td>Cash paid for Repurcahse of stock</td>
+                <td>$<input id="cpfros" class="Number" type="text" value="0" onchange="Calculatencfffa()" /></td>
+            </tr>
+            <tr>
+                <td>Cash paid for Repayment of loans</td>
+                <td>$<input id="cpfrol" class="Number" type="text" value="0" onchange="Calculatencfffa()" /></td>
+            </tr>
+            <tr>
+                <td>Cash paid for Dividends</td>
+                <td>$<input id="cpfd" class="Number" type="text" value="0" onchange="Calculatencfffa()" /></td>
+            </tr>
+            <tr class="secondline">
+                <th>Net Cash Flow from Financing Activities</th>
+                <td>$<input id="ncfffa" class="summary" type="text" value="0" onchange="Calculatencfffa()" /></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        function Calculatencfffa() {
+            var crfios = GetAndValidiateField("crfios");
+            var crfb = GetAndValidiateField("crfb");
+            var cpfros = GetAndValidiateField("cpfros");
+            var cpfrol = GetAndValidiateField("cpfrol");
+            var cpfd = GetAndValidiateField("cpfd");
+            var ncfffa = crfios + crfb + cpfros + cpfrol + cpfd;
+            document.getElementById("ncfffa").value = ncfffa;
+            document.getElementById("ncfffa").style.color = ncfffa < 0 ? "red" : "black";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="Style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div align="center">
+        <table>
+            <caption><h2>Operation Cash Flow Statement</h2></caption>
+            <tr>
+                <td>Cash receipts from customers</td>
+                <td>$<input id="crfc" class="NonNegativeNumber" type="text" value="0" onchange="Calculatencffo()" /></td>
+            </tr>
+            <tr>
+                <td>Inventory purcahses</td>
+                <td>$<input id="ip" class="Number" type="text" value="0" onchange="Calculatencffo()" /></td>
+            </tr>
+            <tr>
+                <td>General operating and administrative expenses</td>
+                <td>$<input id="goae" class="Number" type="text" value="0" onchange="Calculatencffo()" /></td>
+            </tr>
+            <tr>
+                <td>Wage expenses</td>
+                <td>$<input id="we" class="Number" type="text" value="0" onchange="Calculatencffo()" /></td>
+            </tr>
+            <tr>
+                <td>Interest</td>
+                <td>$<input id="it" class="Number" type="text" value="0" onchange="Calculatencffo()" /></td>
+            </tr>
+            <tr>
+                <td>Income taxes</td>
+                <td>$<input id="itx" class="Number" type="text" value="0" onchange="Calculatencffo()" /></td>
+            </tr>
+            <tr class="secondline">
+                <th>Net Cash Flow from Operations</th>
+                <td>$<input id="ncffo" type="text" class="summary" readonly="readonly" value="0" /></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        function Calculatencffo() {
+            var crfc = GetAndValidiateField("crfc");
+            var ip = GetAndValidiateField("ip");
+            var goae = GetAndValidiateField("goae");
+            var we = GetAndValidiateField("we");
+            var it = GetAndValidiateField("it");
+            var itx = GetAndValidiateField("itx");
+            var ncffo = crfc + ip + goae + we + it + itx;
+            document.getElementById("ncffo").value = ncffo;
+            document.getElementById("ncffo").style.color = ncffo < 0 ? "red" : "black";
+        }
+    </script>
+</body>
+</html>

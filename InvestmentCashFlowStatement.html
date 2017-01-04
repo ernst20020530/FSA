@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="Style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div align="center">
+        <table>
+            <caption><h2>Investment Cash Flow Statement</h2></caption>
+            <tr>
+                <td>Sales of property and equipment</td>
+                <td>$<input id="sopae" type="text" class="NonNegativeNumber" value="0" onchange="Calculatencffia()" /></td>
+            </tr>
+            <tr>
+                <td>Collection of principal on loans</td>
+                <td>$<input id="copol" type="text" class="NonNegativeNumber" value="0" onchange="Calculatencffia()" /></td>
+            </tr>
+            <tr>
+                <td>Sale of investment securities</td>
+                <td>$<input id="sois" type="text" class="NonNegativeNumber" value="0" onchange="Calculatencffia()" /></td>
+            </tr>
+            <tr>
+                <td>Purchase of property and equipment</td>
+                <td>$<input id="popae" type="text" class="Number" value="0" onchange="Calculatencffia()" /></td>
+            </tr>
+            <tr>
+                <td>Making loans to other entities</td>
+                <td>$<input id="mltoe" type="text" class="Number" value="0" onchange="Calculatencffia()" /></td>
+            </tr>
+            <tr>
+                <td>Purcahse of investment securities</td>
+                <td>$<input id="pois" type="text" class="Number" value="0" onchange="Calculatencffia()" /></td>
+            </tr>
+            <tr class="secondline">
+                <th>Net Cash Flow from investing Activities</th>
+                <td>$<input id="ncffia" type="text" class="summary" value="0" /></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        function Calculatencffia() {
+            var sopae = GetAndValidiateField("sopae");
+            var copol = GetAndValidiateField("copol");
+            var sois = GetAndValidiateField("sois");
+            var popae = GetAndValidiateField("popae");
+            var mltoe = GetAndValidiateField("mltoe");
+            var pois = GetAndValidiateField("pois");
+            var ncffia = sopae + copol + sois + popae + mltoe + pois;
+            document.getElementById("ncffia").value = ncffia;
+            document.getElementById("ncffia").style.color = ncffia < 0 ? "red" : "black";
+        }
+    </script>
+</body>
+</html>
